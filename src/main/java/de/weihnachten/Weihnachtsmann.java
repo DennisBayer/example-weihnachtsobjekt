@@ -27,7 +27,7 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 		double gesamtHunger = 0;
 		Geschenk naechstGeschenk = this.schlitten.getNaechstesGeschenk();
 
-		for (int i = 0; i <= this.schlitten.getAnzahlRentiere(); i++)
+		for (int i = 0; i < this.schlitten.getAnzahlRentiere(); i++)
 		{
 			gesamtHunger += this.schlitten.getRentier(i).getHunger(naechstGeschenk.getGewicht());
 		}
@@ -50,15 +50,9 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 
 	public void fuettern()
 	{
-		for (int i = 0; i <= this.schlitten.getAnzahlRentiere(); i++)
+		for (int i = 0; i < this.schlitten.getAnzahlRentiere(); i++)
 		{
 			this.futtervorrat -= this.schlitten.getRentier(i).getHunger();
 		}
 	}
-
-	public static void main(String[] args)
-	{
-
-	}
-
 }

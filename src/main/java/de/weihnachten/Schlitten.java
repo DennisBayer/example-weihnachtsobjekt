@@ -2,7 +2,6 @@ package de.weihnachten;
 
 public class Schlitten extends WeihnachtsObjekt
 {
-
 	private Rentier[] rentiere;
 	private Geschenk[] geschenke;
 
@@ -83,9 +82,14 @@ public class Schlitten extends WeihnachtsObjekt
 
 	public Rentier getRentier(int index)
 	{
-		if (index < 0 && index > getAnzahlRentiere())
+		int anzahlRentiere = getAnzahlRentiere();
+
+		if (index < 0 && index > anzahlRentiere)
 		{
-			System.out.println("Index muss zwischen 0 und der Anzahl der" + " Rentiere sein!");
+			System.out
+				.printf("Index muss zwischen 0 und der Anzahl %d der" + " Rentiere sein!", anzahlRentiere - 1)
+				.println();
+
 			return null;
 		}
 		return this.rentiere[index];
