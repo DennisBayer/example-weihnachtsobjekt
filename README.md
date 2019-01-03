@@ -29,7 +29,9 @@ Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
 
 ## Revisionen
 
-* 0.1.7 - Aufgabenbeschreibung in Klassen ergänzt.
+* 0.1.7 - Bugfix, Dokumentation
+  * `Weihnachten.main` korrigiert
+  * Aufgabenbeschreibung in Klassen ergänzt.
 * 0.1.6 - Bugfix
   * Weihnachtsmann - `istFertig` vereinfacht
   * Weihnachtsmann - `kannNochFuettern` korrigiert/vereinfacht
