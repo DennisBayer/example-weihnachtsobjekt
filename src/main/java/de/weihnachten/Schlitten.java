@@ -1,5 +1,7 @@
 package de.weihnachten;
 
+import java.util.Arrays;
+
 public class Schlitten extends WeihnachtsObjekt
 {
 	private Rentier[] rentiere;
@@ -13,71 +15,75 @@ public class Schlitten extends WeihnachtsObjekt
 
 	public Geschenk getNaechstesGeschenk()
 	{
-		Geschenk[] temp = new Geschenk[this.geschenke.length];
+		// Zugriff auf nächstes Geschenk soll immer über index 0 passieren (ein Stack wäre praktischer).
 
-		temp[0] = this.geschenke[0];
+		// Oberstes Geschenk nehmen
+		Geschenk naechstesGeschenk = this.geschenke[0];
 
-		for (int i = 1; i < temp.length; i++)
+		// Geschenke aufrutschen lassen
+		for (int i = 0; i < this.geschenke.length - 1; i++)
 		{
-			temp[i] = this.geschenke[i];
-		}
-		for (int i = 0; i < temp.length; i++)
-		{
-			this.geschenke[i] = temp[i];
+			this.geschenke[i] = this.geschenke[i + 1];
 		}
 
-		return temp[0];
+		// "Letzes, doppeltes" Geschenk entfernen
+		this.geschenke[this.geschenke.length - 1] = null;
+
+		return naechstesGeschenk;
+		
+		// alternativ
+		// ein neues Array mit length-1 erstellen, füllen und this.geschenke zuweisen
 	}
 
 	@Override
 	public int getGewicht()
 	{
-		int gGewicht = 0;
-		for (int i = 0; i < this.geschenke.length; i++)
-		{
-			gGewicht += this.geschenke[i].getGewicht();
-		}
-		return gGewicht;
+		return Arrays.stream(this.geschenke).filter(g -> g != null).map(Geschenk::getGewicht).reduce(0,
+			Integer::sum);
 
+		//		// alternativ
+		//		int gesamtGewicht = 0;
+		//		for (Geschenk geschenk : geschenke)
+		//		{
+		//			if (geschenk != null)
+		//			{
+		//				gesamtGewicht += geschenk.getGewicht();
+		//			}
+		//		}
+		//
+		//		return gesamtGewicht;
 	}
 
 	public boolean kannFliegen()
 	{
-		return 100 * Math.sqrt(this.rentiere.length) > getGewicht();
+		return 100 * Math.sqrt(this.rentiere.length) >= getGewicht();
 	}
 
 	public boolean istLeer()
 	{
-		if (this.geschenke.length == 0)
-		{
-			return true;
-		}
-		return false;
+		return getAnzahlGeschenke() > 0;
 	}
 
 	public int getAnzahlRentiere()
 	{
-		int zaehler = 0;
-
-		for (int i = 0; i < this.rentiere.length; i++)
-		{
-			zaehler++;
-		}
-
-		return zaehler;
+		return this.rentiere.length;
 	}
 
 	public int getAnzahlGeschenke()
 	{
-		int zaehler = 0;
+		return (int) Arrays.stream(this.geschenke).filter(g -> g != null).count();
 
-		for (int i = 0; i < this.geschenke.length; i++)
-		{
-			zaehler++;
-		}
-
-		return zaehler;
-
+		//		// alternativ
+		//		int anzahlGeschenke = 0;
+		//		for (Geschenk geschenk : this.geschenke)
+		//		{
+		//			if (geschenk != null)
+		//			{
+		//				anzahlGeschenke++;
+		//			}
+		//		}
+		//
+		//		return anzahlGeschenke > 0;
 	}
 
 	public Rentier getRentier(int index)
@@ -92,6 +98,7 @@ public class Schlitten extends WeihnachtsObjekt
 
 			return null;
 		}
+
 		return this.rentiere[index];
 	}
 }
