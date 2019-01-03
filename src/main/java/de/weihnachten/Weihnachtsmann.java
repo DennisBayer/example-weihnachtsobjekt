@@ -13,34 +13,33 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 
 	public boolean istFertig()
 	{
-		// (Oder return this.schlitten.istLeer();)
-		boolean geschenkeAusgeliefert = false;
-		if (this.schlitten.istLeer())
-		{
-			return true;
-		}
-		return geschenkeAusgeliefert;
+		return this.schlitten.istLeer();
 	}
 
 	public boolean kannNochFuettern()
 	{
-		double gesamtHunger = 0;
-		Geschenk naechstGeschenk = this.schlitten.getNaechstesGeschenk();
+		return this.futtervorrat >= ermitteleAktuellenHunger();
+	}
 
-		for (int i = 0; i < this.schlitten.getAnzahlRentiere(); i++)
+	private double ermitteleAktuellenHunger()
+	{
+		int anzahlRentiere = this.schlitten.getAnzahlRentiere();
+		int gewicht = this.schlitten.getGewicht();
+
+		double gesamtHunger = 0;
+		for (int i = 0; i < anzahlRentiere; i++)
 		{
-			gesamtHunger += this.schlitten.getRentier(i).getHunger(naechstGeschenk.getGewicht());
+			gesamtHunger += this.schlitten.getRentier(i).getHunger(gewicht);
 		}
 
-		return this.futtervorrat > gesamtHunger;
+		return gesamtHunger;
 	}
 
 	public void naechstesGeschenkAusliefern()
 	{
 		if (this.schlitten.istLeer())
 		{
-			System.out
-				.println("Der Weihnachtsmann ist fertig mit der " + "Auslieferung. Schöne Weihnachten.");
+			System.out.println("Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.");
 		}
 		else
 		{
@@ -50,9 +49,6 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 
 	public void fuettern()
 	{
-		for (int i = 0; i < this.schlitten.getAnzahlRentiere(); i++)
-		{
-			this.futtervorrat -= this.schlitten.getRentier(i).getHunger();
-		}
+		this.futtervorrat = this.futtervorrat - ermitteleAktuellenHunger();
 	}
 }

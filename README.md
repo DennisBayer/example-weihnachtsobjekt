@@ -1,5 +1,17 @@
-# Revisionen
+# Weihnachten
 
+* Es kann noch einiges optimiert werden, jedoch gibt es gewisse Vorgaben, die einzuhalten sind.
+
+## ToDo
+
+[] Die "Test"-Main-Methoden aller Klassen fehlen noch.
+
+## Revisionen
+
+* 0.1.6 - Bugfix
+  * Weihnachtsmann - `istFertig` vereinfacht
+  * Weihnachtsmann - `kannNochFuettern` korrigiert/vereinfacht
+  * Weihnachtsmann - `fuettern` korrigiert
 * 0.1.5 - Bugfix
   * Schlitten - `getNaechstesGeschenk` korrigiert (lt. Aufgabenstellung).
   * Schlitten - `getAnzahlGeschenke` und `getGewicht` korrigiert/vereinfacht.
