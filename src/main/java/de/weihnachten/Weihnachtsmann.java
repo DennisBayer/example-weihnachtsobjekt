@@ -1,5 +1,24 @@
 package de.weihnachten;
 
+/**
+ * Der Weihnachtsmann – Eigenname, daher gegen alle Konventionen kein großes „M“ – ist zwar ein WeihnachtsObjekt
+ * aber kein GewichtigesWeihnachtsObjekt, da er glaubt nichts zu wiegen (hat also ein Gewicht von 0),
+ * denn sonst macht er sich nicht auf die Reise und es gibt keine Geschenke.
+ *
+ * Aus magischen Gründen können weder der Weihnachtsmann, die Rentiere noch die Geschenke mit anderen
+ * Weihnachtsobjekten kollidieren
+ *
+ * istFertig() in der Klasse Weihnachtsmann gibt an, ob alle Geschenke vom Schlitten ausgeliefert wurden.
+ *
+ * Die Methode kannNochFuettern() gibt an, ob der aktuelle Futtervorrat ausreicht, um den Hunger seiner
+ * Rentiere zu stillen.
+ *
+ * Die Methode naechstesGeschenkAusliefern() gibt das nächste auszuliefernde Geschenk auf der Konsole aus,
+ * sofern der Schlitten noch nicht leer ist.
+ *
+ * Die Methode fuettern() verringert den Futtervorrat des Weihnachtsmanns um die Menge, die seine Rentiere
+ * einmalig fressen.
+ */
 public class Weihnachtsmann extends WeihnachtsObjekt
 {
 	private double futtervorrat;
@@ -43,7 +62,8 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 		}
 		else
 		{
-			System.out.println(this.schlitten.getNaechstesGeschenk().asString());
+			System.out.println(
+				" - Der Weihnachtsmann liefert aus: " + this.schlitten.getNaechstesGeschenk().asString());
 		}
 	}
 

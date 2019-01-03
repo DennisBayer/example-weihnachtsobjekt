@@ -1,5 +1,23 @@
 package de.weihnachten;
 
+/**
+ * Jedes Rentier hat ein zufälliges Gewicht (Minimalgewicht 200kg, Maximalgewicht 300kg) und verdrückt pro
+ * Mahlzeit eine unterschiedliche Anzahl an Essensrationen.
+ *
+ * Aus magischen Gründen können weder der Weihnachtsmann, die Rentiere noch die Geschenke mit anderen
+ * Weihnachtsobjekten kollidieren.
+ *
+ * Das eigene Gewicht und der individuelle hunger wird bei der Erstellung des Rentiers im Konstruktor
+ * zufällig ermittelt. Der hunger beträgt zwischen einer und zwei Essensrationen (beides inklusive) und wird
+ * von der Methode getHunger() zurückgegeben.
+ *
+ * Die Methode getHunger(double gGewicht) Klasse Rentier gibt die Menge an Essensrationen zurück, die dieses
+ * Rentier pro Mahlzeit abhängig vom Gesamtgewicht der Geschenke gGewicht verdrückt. Die Menge an
+ * Essensrationen (getHunger) wird mit hunger + 0.01 * gGewicht berechnet. Bei 100kg Geschenken und einem
+ * individuellen hunger von 1.5 benötigt das Rentier also 1.5 + 0.01 * 100 = 2.5 Essensrationen.
+ *
+ * Die Methode asString() gibt eine Beschreibung des Rentiers mit seinem individuellen Hungerwert zurück.
+ */
 public class Rentier extends GewichtigesWeihnachtsObjekt
 {
 	private double hunger;

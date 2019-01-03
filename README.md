@@ -2,12 +2,34 @@
 
 * Es kann noch einiges optimiert werden, jedoch gibt es gewisse Vorgaben, die einzuhalten sind.
 
+## Beispiel
+```
+Wir starten Weihnachten mit 10 Geschenken, 4 Rentier(en) und einem Schlitten mit 82 kg.Die Rentiere sind:
+ - Ich bin ein Rentier mit indiv. Hunger 1,5 und Gewicht 271 kg
+ - Ich bin ein Rentier mit indiv. Hunger 1,8 und Gewicht 271 kg
+ - Ich bin ein Rentier mit indiv. Hunger 1,2 und Gewicht 266 kg
+ - Ich bin ein Rentier mit indiv. Hunger 1,7 und Gewicht 232 kg
+Die Tour beginnt:
+ - Der Weihnachtsmann liefert aus: Geschenk: 4 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 4 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 16 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 10 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 11 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 2 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 1 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 14 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 14 kg
+ - Der Weihnachtsmann liefert aus: Geschenk: 6 kg
+Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
+```
+
 ## ToDo
 
 [] Die "Test"-Main-Methoden aller Klassen fehlen noch.
 
 ## Revisionen
 
+* 0.1.7 - Aufgabenbeschreibung in Klassen ergänzt.
 * 0.1.6 - Bugfix
   * Weihnachtsmann - `istFertig` vereinfacht
   * Weihnachtsmann - `kannNochFuettern` korrigiert/vereinfacht
