@@ -1,24 +1,16 @@
 package de.weihnachten;
 
-public class WeihnachtsObjekt {
+public class WeihnachtsObjekt
+{
+	public int getGewicht()
+	{
+		return 0;
+	}
 
-    public int getGewicht() {
-        return 0;
-    }
-    
-    public boolean kannKollidieren() {
-        boolean istKollidiert = false;
+	public boolean kannKollidieren()
+	{
+		boolean istKollidiert = false;
 
-        return istKollidiert;
-    }
-
-    
-    public static void main(String[] args) {
-        
-    }
+		return istKollidiert;
+	}
 }
-    
-        
-
-
-
