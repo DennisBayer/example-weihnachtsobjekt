@@ -1,5 +1,7 @@
 # Revisionen
 
+* 0.1.4 - Bugfix
+  * Rentier `asString` korrigiert.
 * 0.1.3 - Bugfix
   * XMasUtils - Falsche Berechnung, falls untere und obere Grenze identisch.
   * Geschenk - Verwendung von `asString` für Ausgabe anstelle `toString`.

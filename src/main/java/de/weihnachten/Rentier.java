@@ -7,7 +7,7 @@ public class Rentier extends GewichtigesWeihnachtsObjekt
 	public Rentier()
 	{
 		super(XMasUtils.getZufallsGanzzahl(200, 300));
-		this.hunger = (XMasUtils.getZufallHunger(1.0, 2.0));
+		this.hunger = XMasUtils.getZufallHunger(1.0, 2.0);
 	}
 
 	public double getHunger()
@@ -23,7 +23,8 @@ public class Rentier extends GewichtigesWeihnachtsObjekt
 
 	public String asString()
 	{
-		return " - Ich bin ein Rentier mit indiv. Hunger " + Double.toString(this.hunger) + " und Gewicht "
-			+ Integer.toString(getGewicht()) + " kg";
+		// Ich bin ein Rentier mit indiv. Hunger 1.0 und Gewicht 245 kg
+		return String.format(" - Ich bin ein Rentier mit indiv. Hunger %.1f und Gewicht %d kg", this.hunger,
+			getGewicht());
 	}
 }
