@@ -9,6 +9,6 @@ public class Geschenk extends GewichtigesWeihnachtsObjekt
 
 	public String asString()
 	{
-		return "Geschenk: " + Integer.toString(getGewicht()) + "kg.";
+		return String.format("Geschenk: %d kg", getGewicht());
 	}
 }

@@ -4,7 +4,7 @@ public class XMasUtils
 {
 	public static double getZufallsFliesskommazahl(double ug, double og)
 	{
-		double x = (Math.random() * ((og - ug) + 1)) + ug;
+		double x = (Math.random() * (og - ug)) + ug;
 		return x;
 	}
 
@@ -16,7 +16,7 @@ public class XMasUtils
 
 	public static double getZufallHunger(double ug, double og)
 	{
-		double x = ((Math.random() * ((og - ug) + 1)) + ug);
+		double x = (Math.random() * (og - ug)) + ug;
 		return x;
 	}
 }

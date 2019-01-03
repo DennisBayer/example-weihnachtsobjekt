@@ -44,7 +44,7 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 		}
 		else
 		{
-			System.out.println(this.schlitten.getNaechstesGeschenk());
+			System.out.println(this.schlitten.getNaechstesGeschenk().asString());
 		}
 	}
 

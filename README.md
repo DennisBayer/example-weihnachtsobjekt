@@ -1,5 +1,8 @@
 # Revisionen
 
+* 0.1.3 - Bugfix
+  * XMasUtils - Falsche Berechnung, falls untere und obere Grenze identisch.
+  * Geschenk - Verwendung von `asString` für Ausgabe anstelle `toString`.
 * 0.1.2 - Aufräumarbeiten
 * 0.1.1 - Bugfix
   * Falsche Iteration über Rentiere bei Vewendung von `schlitten.getAnzahlRentiere()`.
