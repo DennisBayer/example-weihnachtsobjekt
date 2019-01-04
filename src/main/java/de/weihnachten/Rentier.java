@@ -35,12 +35,17 @@ public class Rentier extends GewichtigesWeihnachtsObjekt
 
 	public double getHunger(double gGewicht)
 	{
-		return this.hunger + (0.01 * gGewicht);
+		return getHunger() + (getHungerFaktor() * gGewicht);
+	}
+
+	protected double getHungerFaktor()
+	{
+		return 0.01;
 	}
 
 	public String asString()
 	{
-		return String.format(" - Ich bin ein Rentier mit indiv. Hunger %.1f und Gewicht %d kg", this.hunger,
+		return String.format(" - Ich bin ein Rentier mit indiv. Hunger %.1f und Gewicht %d kg", getHunger(),
 			getGewicht());
 	}
 }

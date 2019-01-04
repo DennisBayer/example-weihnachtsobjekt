@@ -29,9 +29,10 @@ Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
 
 ## Revisionen
 
+* 0.2.0 - Spezialisierung `Rudolph` von `Rentier` ergänzt
 * 0.1.8 - Refaktorisierungen
 * 0.1.7 - Bugfix, Dokumentation
-  * `Weihnachten.main` korrigiert
+  * Weihnachten - `main` korrigiert
   * Aufgabenbeschreibung in Klassen ergänzt.
 * 0.1.6 - Bugfix
   * Weihnachtsmann - `istFertig` vereinfacht
@@ -47,5 +48,5 @@ Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
   * Geschenk - Verwendung von `asString` für Ausgabe anstelle `toString`.
 * 0.1.2 - Aufräumarbeiten
 * 0.1.1 - Bugfix
-  * Falsche Iteration über Rentiere bei Verwendung von `schlitten.getAnzahlRentiere()`.
+  * Schlitten - Falsche Iteration über Rentiere bei Verwendung von `getAnzahlRentiere`.
 * 0.1.0 - Initialer Commit

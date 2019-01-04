@@ -123,7 +123,9 @@ public class Weihnachten
 	private static Rentier[] erstelleRentiere(int anzahlDerRentiere)
 	{
 		Rentier[] rentiere = new Rentier[anzahlDerRentiere];
-		for (int i = 0; i < anzahlDerRentiere; i++)
+
+		rentiere[0] = new Rudolph();
+		for (int i = 1; i < anzahlDerRentiere; i++)
 		{
 			rentiere[i] = new Rentier();
 		}
