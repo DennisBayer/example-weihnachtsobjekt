@@ -1,6 +1,7 @@
 package de.weihnachten;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * Auch wenn im Diagramm nicht dargestellt, sollen alle Klassen öffentlich (public) sichtbar sein.
@@ -36,7 +37,7 @@ public class Weihnachten
 		{
 			anzahlDerRentiere = 4;//ermitteleAnzahlDerRentiere(scanner);
 			anzahlDerGeschenke = 15;//ermittleAnzahlDerGeschenke(scanner);
-			futtermenge = 130;//ermittleFuttermenge(scanner);
+			futtermenge = 140;//ermittleFuttermenge(scanner);
 		}
 
 		Rentier[] rentiere = erstelleRentiere(anzahlDerRentiere);
@@ -45,18 +46,22 @@ public class Weihnachten
 
 		Weihnachtsmann weihnachtsmann = new Weihnachtsmann(futtermenge, schlitten);
 
-		if (schlitten.kannFliegen())
+		boolean schlittenZuSchwer = !schlitten.kannFliegen();
+		boolean flugbahnBehindert = flugbahnBehindert();
+		if (schlittenZuSchwer || flugbahnBehindert)
+		{
+			System.out.printf(
+				"Der Schlitten kann nicht fliegen: zu schwer [%b], Flugbahn behindert [%b]. Programmende!",
+				schlittenZuSchwer, flugbahnBehindert).println();
+			System.exit(1);
+		}
+		else
 		{
 			System.out
 				.printf(
 					"Wir starten Weihnachten mit %d Geschenken, %d Rentier(en) und einem Schlitten mit %d kg.",
 					schlitten.getAnzahlGeschenke(), schlitten.getAnzahlRentiere(), schlitten.getGewicht())
 				.println();
-		}
-		else
-		{
-			System.out.println("Eingabe fehlerhaft! Rentiere können nicht losfliegen! Programmende!");
-			System.exit(1);
 		}
 
 		stelleRentiereVor(schlitten);
@@ -73,23 +78,13 @@ public class Weihnachten
 			}
 			else
 			{
-				System.out.println("Der Futtervorrat reicht nicht aus! Programmende!");
+				System.out.println("Der Futtervorrat reicht nicht aus. Programmende!");
 				System.exit(1);
 			}
 		}
 
 		System.out.println("Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.");
 		System.exit(0);
-	}
-
-	private static void stelleRentiereVor(Schlitten schlitten)
-	{
-		System.out.println("Die Rentiere sind:");
-
-		for (int i = 0; i < schlitten.getAnzahlRentiere(); i++)
-		{
-			System.out.println(schlitten.getRentier(i).asString());
-		}
 	}
 
 	private static int ermitteleAnzahlDerRentiere(Scanner scanner)
@@ -142,5 +137,61 @@ public class Weihnachten
 		}
 
 		return geschenke;
+	}
+
+	private static boolean flugbahnBehindert()
+	{
+		WeihnachtsObjekt[][] flugplan = erstelleFlugplan();
+
+		for (int i = 0, j = 0; i < flugplan.length; i++, j++)
+		{
+			WeihnachtsObjekt hindernis = flugplan[i][j];
+			if (hindernis != null && hindernis.kannKollidieren())
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	private static WeihnachtsObjekt[][] erstelleFlugplan()
+	{
+		WeihnachtsObjekt[][] flugplan = new WeihnachtsObjekt[30][30];
+
+		// Erstelle Hindernisse
+		int anzahlDerHindernisse = XMasUtils.getZufallsGanzzahl(10, 50);
+		Stack<WeihnachtsObjekt> hindernisse = new Stack<>();
+		for (int i = 0; i < anzahlDerHindernisse; i++)
+		{
+			hindernisse.push(new Tannenbaum());
+		}
+
+		// Platziere Hindernisse
+		int breite = flugplan.length;
+		int hoehe = flugplan[0].length;
+
+		while (!hindernisse.isEmpty())
+		{
+			int zufallsBreite = XMasUtils.getZufallsGanzzahl(0, breite - 1);
+			int zufallsHoehe = XMasUtils.getZufallsGanzzahl(0, hoehe - 1);
+
+			if (flugplan[zufallsBreite][zufallsHoehe] == null)
+			{
+				flugplan[zufallsBreite][zufallsHoehe] = hindernisse.pop();
+			}
+		}
+
+		return flugplan;
+	}
+
+	private static void stelleRentiereVor(Schlitten schlitten)
+	{
+		System.out.println("Die Rentiere sind:");
+
+		for (int i = 0; i < schlitten.getAnzahlRentiere(); i++)
+		{
+			System.out.println(schlitten.getRentier(i).asString());
+		}
 	}
 }

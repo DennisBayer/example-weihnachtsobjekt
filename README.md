@@ -26,10 +26,12 @@ Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
 ## ToDo
 
 [] Die "Test"-Main-Methoden aller Klassen fehlen noch.
+[] Einlesen der Eingabe in `Weihnachten.main` aktivieren (feste Werte löschen)
 
 ## Revisionen
 
-* 0.2.0 - Spezialisierung `Rudolph` von `Rentier` ergänzt
+* 0.3.0 - Flugplan mit Hindernissen inkl. Flugbahn-Prüfung ergänzt.
+* 0.2.0 - Spezialisierung `Rudolph` von `Rentier` ergänzt.
 * 0.1.8 - Refaktorisierungen
 * 0.1.7 - Bugfix, Dokumentation
   * Weihnachten - `main` korrigiert
