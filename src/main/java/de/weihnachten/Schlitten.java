@@ -74,7 +74,7 @@ public class Schlitten extends WeihnachtsObjekt
 
 	public boolean kannFliegen()
 	{
-		return 100 * Math.sqrt(this.rentiere.length) >= getGewicht();
+		return 100 * Math.sqrt(getAnzahlRentiere()) >= getGewicht();
 	}
 
 	public boolean istLeer()
@@ -110,9 +110,8 @@ public class Schlitten extends WeihnachtsObjekt
 
 		if (index < 0 && index > anzahlRentiere)
 		{
-			System.out
-				.printf("Index muss zwischen 0 und der Anzahl %d der" + " Rentiere sein!", anzahlRentiere - 1)
-				.println();
+			System.out.printf("Index muss zwischen 0 und kleiner der Anzahl %d der" + " Rentiere sein!",
+				anzahlRentiere).println();
 
 			return null;
 		}

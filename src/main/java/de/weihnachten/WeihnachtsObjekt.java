@@ -17,8 +17,6 @@ public class WeihnachtsObjekt
 
 	public boolean kannKollidieren()
 	{
-		boolean istKollidiert = false;
-
-		return istKollidiert;
+		return false;
 	}
 }

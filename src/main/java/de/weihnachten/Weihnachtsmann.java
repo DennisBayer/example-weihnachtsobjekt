@@ -56,19 +56,19 @@ public class Weihnachtsmann extends WeihnachtsObjekt
 
 	public void naechstesGeschenkAusliefern()
 	{
-		if (this.schlitten.istLeer())
-		{
-			System.out.println("Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.");
-		}
-		else
+		if (!this.schlitten.istLeer())
 		{
 			System.out.println(
 				" - Der Weihnachtsmann liefert aus: " + this.schlitten.getNaechstesGeschenk().asString());
+		}
+		else
+		{
+			System.out.println(" - Der Weihnachtsmann findet keine Geschenke mehr auf dem Schlitten.");
 		}
 	}
 
 	public void fuettern()
 	{
-		this.futtervorrat = this.futtervorrat - ermitteleAktuellenHunger();
+		this.futtervorrat -= ermitteleAktuellenHunger();
 	}
 }

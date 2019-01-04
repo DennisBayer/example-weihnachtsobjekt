@@ -35,8 +35,8 @@ public class Weihnachten
 		try (Scanner scanner = new java.util.Scanner(System.in))
 		{
 			anzahlDerRentiere = 4;//ermitteleAnzahlDerRentiere(scanner);
-			anzahlDerGeschenke = 15; //ermittleAnzahlDerGeschenke(scanner);
-			futtermenge = 50;//ermittleFuttermenge(scanner);
+			anzahlDerGeschenke = 15;//ermittleAnzahlDerGeschenke(scanner);
+			futtermenge = 130;//ermittleFuttermenge(scanner);
 		}
 
 		Rentier[] rentiere = erstelleRentiere(anzahlDerRentiere);
@@ -92,6 +92,16 @@ public class Weihnachten
 		}
 	}
 
+	private static int ermitteleAnzahlDerRentiere(Scanner scanner)
+	{
+		return leseKonsoleneingabe("Bitte geben Sie die Anzahl der Rentiere ein: ", scanner);
+	}
+
+	private static int ermittleAnzahlDerGeschenke(Scanner scanner)
+	{
+		return leseKonsoleneingabe("Bitte geben Sie die Anzahl der Geschenke ein: ", scanner);
+	}
+
 	private static int ermittleFuttermenge(Scanner scanner)
 	{
 		return leseKonsoleneingabe("Bitte geben Sie den Futtervorrat in kg ein: ", scanner);
@@ -108,16 +118,6 @@ public class Weihnachten
 		while (eingabe <= 0);
 
 		return eingabe;
-	}
-
-	private static int ermitteleAnzahlDerRentiere(Scanner scanner)
-	{
-		return leseKonsoleneingabe("Bitte geben Sie die Anzahl der Rentiere ein: ", scanner);
-	}
-
-	private static int ermittleAnzahlDerGeschenke(Scanner scanner)
-	{
-		return leseKonsoleneingabe("Bitte geben Sie die Anzahl der Geschenke ein:", scanner);
 	}
 
 	private static Rentier[] erstelleRentiere(int anzahlDerRentiere)

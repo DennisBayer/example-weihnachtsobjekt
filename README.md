@@ -29,6 +29,7 @@ Der Weihnachtsmann ist fertig mit der Auslieferung. Schöne Weihnachten.
 
 ## Revisionen
 
+* 0.1.8 - Refaktorisierungen
 * 0.1.7 - Bugfix, Dokumentation
   * `Weihnachten.main` korrigiert
   * Aufgabenbeschreibung in Klassen ergänzt.
